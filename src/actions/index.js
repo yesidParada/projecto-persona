@@ -10,10 +10,11 @@ export const getUsers = () => {
         //TODO Request con axios
         http.get('users/')
           .then((response) =>{
-            console.log(response);
+            if(response.data)
+              dispatch(completeGetUsers(response.data));
           })
           .catch((err) => {
-              console.log(err);
+            dispatch(errorGetUsers(err));
           })
     }
 }
