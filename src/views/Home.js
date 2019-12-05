@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { getUsers } from '../actions'
 import UserItem from '../components/UserItem'
+import { CircleLoader } from 'react-spinners'
 import 'materialize-css/dist/css/materialize.min.css'
 import './index.css'
 
@@ -27,6 +28,16 @@ class Home extends Component {
            />
         )
       })
+    }
+    if (this.props.users.type === "START_GET_USERS") {
+      return(
+        <div className="Home-preLoader">
+          <CircleLoader
+            color="#fff"
+            loading= { true }
+          />
+        </div>
+      )
     }
     return(
       <div className="Home">
