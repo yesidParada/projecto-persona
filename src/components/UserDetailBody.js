@@ -7,18 +7,31 @@ class UserDetailBody extends Component{
   constructor(props){
     super(props);
     this.state ={
-        message: this.props.message
+      messages: this.props.messages
     }
   }
   render () {
+    let messages = this.props.messages.map((currentValue) => {
+      return(
+        <UserPost
+          key= { currentValue.id }
+          id= { currentValue.id }
+          title= { currentValue.title }
+          Message= { currentValue.message }
+        />
+        );
+    }
+    )
     return(
       <div className="UserDetailBody">
-        
+        <div>
+          { messages }
+        </div>
       </div>
     );
   }
 }
 UserDetailBody.protoTypes = {
-  message: PropTypes.array.isRequired
+  messages: PropTypes.array.isRequired
 }
 export default UserDetailBody;
