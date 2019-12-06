@@ -8,9 +8,6 @@ import 'materialize-css/dist/css/materialize.min.css'
 import './index.css'
 
 class Home extends Component {
-  constructor() {
-    super();
-  }
   componentWillMount(){
     this.props.getUsers()
   }
